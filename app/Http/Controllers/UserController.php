@@ -5,6 +5,8 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 
+//  use App\Http\Controllers\Admin\UserController;
+
 class UserController extends Controller
 {
     public function index()
@@ -54,13 +56,13 @@ class UserController extends Controller
         return redirect()->route('admin.users.index')->with('success', 'User updated successfully!');
     }
 
-//         public function destroy(User $user){
-//              if ($user->id === auth()->id()) {
-//             return redirect()->route('admin.users.index')->with('error', 'You cannot delete your own account!');
-//         }
-// $user->delete();
+        public function destroy(User $user){
+             if ($user->id === auth()->id()) {
+            return redirect()->route('admin.users.index')->with('error', 'You cannot delete your own account!');
+        }
+$user->delete();
 
-//         return redirect()->route('admin.users.index')->with('success', 'User deleted successfully!');
-//     }
+        return redirect()->route('admin.users.index')->with('success', 'User deleted successfully!');
+    }
 
 }

@@ -8,7 +8,6 @@ use Illuminate\Notifications\Notifiable;
 
 class User extends Authenticatable
 {
-    /** @use HasFactory<\Database\Factories\UserFactory> */
     use HasFactory, Notifiable;
 
     /**
@@ -20,7 +19,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
-        'role', // Make sure this is included
+        'is_admin', // Keep this as is_admin to match your database
     ];
 
     /**
@@ -28,7 +27,7 @@ class User extends Authenticatable
      */
     public function isAdmin(): bool
     {
-        return $this->role === 'admin';
+        return $this->is_admin == 1; // Use is_admin field instead of role
     }
 
     /**
@@ -36,11 +35,12 @@ class User extends Authenticatable
      */
     public function isUser(): bool
     {
-        return $this->role === 'user';
+        return $this->is_admin == 0; // Use is_admin field instead of role
     }
 
     /**
      * The attributes that should be hidden for serialization.
+     *
      *
      * @var list<string>
      */
@@ -59,6 +59,19 @@ class User extends Authenticatable
         return [
             'email_verified_at' => 'datetime',
             'password' => 'hashed',
+            'is_admin' => 'boolean', // Cast is_admin to boolean
         ];
     }
+
+public function adoptionRequests()
+{
+    return $this->hasMany(AdoptionRequest::class);
+}
+
+
+
+
+
+
+
 }

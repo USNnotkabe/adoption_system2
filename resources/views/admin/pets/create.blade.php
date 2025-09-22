@@ -65,11 +65,12 @@
 
                 <label>Food Diet</label>
                 <input type="text" name="food_diet" placeholder="Food Diet" value="{{ old('food_diet') }}">
-
+                <label>Adoption Status</label>
                 <div>
                     <input type="submit" value="Save Pet">
                     <a href="{{ route('admin.pets.index') }}">Cancel</a>
                 </div>
+
             </div>
         </form>
     </body>

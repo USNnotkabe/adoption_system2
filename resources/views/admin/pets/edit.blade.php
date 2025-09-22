@@ -65,7 +65,13 @@
 
             <label>Food Diet</label>
             <input type="text" name="food_diet" placeholder="Food Diet" value="{{ $pet->food_diet }}">
-
+            <label>Adoption Status</label>
+            <select name="adoption_status">
+                <option value="available" {{ $pet->adoption_status == 'available' ? 'selected' : '' }}>Available
+                </option>
+                <option value="pending" {{ $pet->adoption_status == 'pending' ? 'selected' : '' }}>Pending</option>
+                <option value="adopted" {{ $pet->adoption_status == 'adopted' ? 'selected' : '' }}>Adopted</option>
+            </select>
             <div>
                 <input type="submit" value="Update Pet">
                 <a href="{{ route('admin.pets.index') }}">Cancel</a>

@@ -9,7 +9,7 @@
 
 <body>
     <nav>
-        <a href="{{ route('admin.dashboard') }}" class="nav-link">← Back to Dashboard</a>
+        <a href="{{ route('dashboard') }}" class="nav-link">← Back to Dashboard</a>
     </nav>
 
     <h1>Pet Management List</h1>
@@ -39,11 +39,13 @@
                 <th>Disabilities</th>
                 <th>Medication</th>
                 <th>Food Diet</th>
+                <th>Adoption Status</th>
                 <th>Edit</th>
                 <th>Delete</th>
             </tr>
 
             @foreach($pets as $pet)
+
             <tr>
                 <td>{{ $pet->name }}</td>
                 <td>{{ $pet->type }}</td>
@@ -57,6 +59,7 @@
                 <td>{{ $pet->disabilities }}</td>
                 <td>{{ $pet->medication }}</td>
                 <td>{{ $pet->food_diet }}</td>
+                <td>{{ $pet->adoption_status }}</td>
                 <td>
                     <a href="{{ route('admin.pets.edit', ['pet' => $pet]) }}">Edit</a>
                 </td>

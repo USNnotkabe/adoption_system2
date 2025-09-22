@@ -24,7 +24,7 @@ class AdminMiddleware
         // Check if user has admin role
         if (!Auth::user()->isAdmin()) {
             abort(403, 'Access denied. Admin privileges required.');
-        }
+        }   
 
         return $next($request);
     }
