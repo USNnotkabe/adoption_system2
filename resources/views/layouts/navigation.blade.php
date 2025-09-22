@@ -99,7 +99,10 @@
             <x-responsive-nav-link :href="route('admin.dashboard')" :active="request()->routeIs('admin.dashboard')">
                 {{ __('Admin Panel') }}
             </x-responsive-nav-link>
-            <x-responsive-nav-link :href="route('admin.pets.index')" :active="request()->routeIs('admin.pets.*')">
+            <x-responsive-nav-link :href="route('admin.users.index')" :active="request()->routeIs('admin.users.*')">
+                {{ __('Manage Users') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                 {{ __('Manage Pets') }}
             </x-responsive-nav-link>
             @endif
